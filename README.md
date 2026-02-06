@@ -53,7 +53,3 @@ Optional container: `docker build -t stock-ml-service .`
 - Functions: `npm run build && firebase deploy --only functions`
 - ML service: deploy the container or app; set `ML_SERVICE_URL` in Functions env.
 - Frontend: `npm run build` in `client`; host `dist/` (or Firebase Hosting with rewrites).
-
-## Security
-- Client sends Firebase ID tokens; Functions verify every request.
-- Keep `service-account-key.json` private and out of version control; rotate if exposed.
