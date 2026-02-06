@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Custom theme layer */
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-accent: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-surface: #1e1e2e;
+  --color-surface-light: #2a2a3e;
+  --color-surface-lighter: #363650;
+  --color-bg: #11111b;
+  --color-text: #cdd6f4;
+  --color-text-muted: #6c7086;
+  --color-border: #313244;
+  --color-green: #10b981;
+  --color-red: #ef4444;
+}

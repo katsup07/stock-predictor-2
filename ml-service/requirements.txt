@@ -1,0 +1,12 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.34.0
+prophet>=1.1.6
+tensorflow>=2.18.0
+pandas>=2.2.0
+numpy>=1.26.0
+scikit-learn>=1.6.0
+yfinance>=0.2.50
+ta>=0.11.0
+google-cloud-firestore>=2.19.0
+firebase-admin>=6.6.0
+gunicorn>=23.0.0

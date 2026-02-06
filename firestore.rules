@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Stocks collection: readable by any authenticated user
+    match /stocks/{ticker} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only backend writes
+
+      match /dailyPrices/{year} {
+        allow read: if request.auth != null;
+        allow write: if false;
+      }
+    }
+
+    // Market data: readable by authenticated users
+    match /marketData/{index}/daily/{year} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Predictions: users can read their own predictions
+    match /predictions/{predictionId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if false;
+
+      match /details/{detailId} {
+        allow read: if request.auth != null;
+        allow write: if false;
+      }
+    }
+
+    // User watchlists
+    match /users/{userId}/watchlist/{ticker} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
